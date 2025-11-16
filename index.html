@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Test Site — Clean & Modern</title>
+  <meta name="description" content="Single-file modern test site for demos, portfolios, and experiments." />
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#7dd3fc; --glass: rgba(255,255,255,0.06);
+      --radius:14px; --maxw:1100px; --ff:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:var(--ff);background:linear-gradient(180deg,#071129 0%, #071024 60%);color:#e6eef6}
+    .wrap{max-width:var(--maxw);margin:36px auto;padding:28px}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .mark{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:grid;place-items:center;color:#022; font-weight:700}
+
+    nav{display:flex;gap:12px}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-size:14px}
+    nav a.primary{background:var(--glass);color:var(--accent)}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:28px;align-items:center}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,8,23,0.6);}
+
+    h1{margin:0;font-size:28px;line-height:1.05}
+    p.lead{color:var(--muted);margin-top:10px}
+
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .feat{padding:14px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
+    .feat h4{margin:0 0 6px 0}
+
+    .preview{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(125,211,252,0.06), rgba(125,211,252,0.02));border:1px solid rgba(125,211,252,0.12)}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+    .btn.cta{background:linear-gradient(90deg,#7dd3fc,#60a5fa);color:#022}
+
+    .grid-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+    .small{font-size:13px;color:var(--muted)}
+
+    footer{margin-top:40px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .features,.grid-cards{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:560px){
+      .features,.grid-cards{grid-template-columns:1fr}
+      nav{display:none}
+      .mark{width:42px;height:42px}
+      .wrap{padding:18px;margin:18px}
+    }
+
+    /* small interactive touches */
+    .card:hover{transform:translateY(-4px);transition:transform .18s ease}
+    a{transition:opacity .12s}
+    a:hover{opacity:.9}
+
+    /* tiny form */
+    form{display:flex;gap:8px;margin-top:12px}
+    input[type=text]{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    input[type=submit]{padding:10px 12px;border-radius:10px;border:0;background:var(--accent);color:#022;font-weight:700}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">
+        <div class="mark">TS</div>
+        <div>
+          <div style="font-weight:700">TestSite</div>
+          <div class="small">Modern single-file demo</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#preview" class="primary">Preview</a>
+        <a href="#download">Download</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <h1>Good-looking test site — single file</h1>
+        <p class="lead">Minimal, responsive, and optimised for quick demos. Use it for prototyping, portfolios, or UI tests.</p>
+
+        <div class="features" id="features">
+          <div class="feat"><h4>Responsive</h4><div class="small">Grid-first layout, mobile-first breakpoints.</div></div>
+          <div class="feat"><h4>Lightweight</h4><div class="small">No external deps, under 12KB CSS + HTML.</div></div>
+          <div class="feat"><h4>Accessible</h4><div class="small">Semantic markup, clear contrast, reduced motion safe.</div></div>
+        </div>
+
+        <div class="grid-cards">
+          <div class="card small"><strong>Card A</strong><div class="small">Use this block for quick notes, stats, or actions.</div></div>
+          <div class="card small"><strong>Card B</strong><div class="small">Swap in images or embed previews inside.</div></div>
+          <div class="card small"><strong>Card C</strong><div class="small">Forms, buttons and microinteractions.</div></div>
+        </div>
+
+        <form onsubmit="event.preventDefault();alert('Demo form submitted');">
+          <input type="text" placeholder="Your email or note" aria-label="input" />
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+
+      <aside class="preview card" id="preview">
+        <h3 style="margin-top:0">Live preview</h3>
+        <div style="font-weight:700;font-size:18px">Quick stats</div>
+        <ul class="small" style="margin:8px 0 0 18px">
+          <li>Initial HTML: ~6 KB</li>
+          <li>CSS inline: ~9 KB</li>
+          <li>Scripts: none</li>
+        </ul>
+        <hr style="opacity:.06;margin:12px 0">
+        <a class="btn cta" href="#download" onclick="copyHtml()">Copy HTML</a>
+        <div style="margin-top:10px" class="small">Tip: run <code>python -m http.server</code> to preview locally.</div>
+      </aside>
+    </section>
+
+    <section class="card" style="margin-top:22px" id="download">
+      <h3 style="margin:0">Download / Use</h3>
+      <p class="small">Save this file as <code>index.html</code> and open in any browser. Designed to be forked and extended.</p>
+      <details style="margin-top:8px" open>
+        <summary class="small">What to change</summary>
+        <ul class="small">
+          <li>Colors: modify <code>--accent</code> and background in <code>:root</code>.</li>
+          <li>Fonts: add a link to Google Fonts if needed.</li>
+          <li>Analytics: drop a small script inside <code>&lt;head&gt;</code>.</li>
+        </ul>
+      </details>
+    </section>
+
+    <footer>
+      Built for quick demos — edit freely. © TestSite
+    </footer>
+  </div>
+
+  <script>
+    function copyHtml(){
+      try{
+        navigator.clipboard.writeText(document.documentElement.outerHTML).then(()=>{
+          alert('HTML copied to clipboard');
+        });
+      }catch(e){alert('Copy failed — view source to copy manually')}
+    }
+  </script>
+</body>
+</html>
