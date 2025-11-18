@@ -22,8 +22,8 @@
       --card: rgba(255,255,255,0.95);
       --border: rgba(0,0,0,0.1);
       --accent: #8b5cf6;
-      --skill-bg: rgba(139, 92, 246, 0.15);   /* Light purple tint */
-      --progress-bg: rgba(139, 92, 246, 0.2); /* Subtle purple track */
+      --skill-bg: rgba(139, 92, 246, 0.15);
+      --progress-bg: rgba(139, 92, 246, 0.2);
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); transition:all .4s; }
@@ -41,7 +41,21 @@
     .resume-btn{background:#fff;color:#8b5cf6;padding:16px 40px;border-radius:50px;font-weight:700;font-size:1.1rem;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.3);transition:.3s;display:inline-block}
     .resume-btn:hover{transform:translateY(-5px)}
     
-    .top-bar{position:fixed;top:24px;right:24px;display:flex;gap:16px;background:rgba(0,0,0,.3);backdrop-filter:blur(16px);padding:14px 20px;border-radius:50px;border:1px solid rgba(255,255,255,.15);z-index:1000}
+    /* Changed only this block - now top-centered */
+    .top-bar{
+      position:fixed;
+      top:24px;
+      left:50%;
+      transform:translateX(-50%);
+      display:flex;
+      gap:16px;
+      background:rgba(0,0,0,.3);
+      backdrop-filter:blur(16px);
+      padding:14px 20px;
+      border-radius:50px;
+      border:1px solid rgba(255,255,255,.15);
+      z-index:1000;
+    }
     .top-bar a,.top-bar button{color:#fff;font-size:1.4rem;width:48px;height:48px;display:grid;place-items:center;border-radius:50%;background:none;border:none;cursor:pointer;transition:.3s}
     .top-bar a:hover,.top-bar button:hover{background:rgba(255,255,255,.2);transform:scale(1.2)}
     
