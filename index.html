@@ -12,8 +12,7 @@
       --text: #e2e8f0;
       --card: rgba(30, 30, 60, 0.7);
       --border: rgba(139, 92, 246, 0.2);
-      --primary: #a78bfa;
-      --accent: #c084fc;
+      --primary: #c084fc;
     }
     [data-theme="light"] {
       --bg: #f8fafc;
@@ -21,7 +20,6 @@
       --card: rgba(255, 255, 255, 0.9);
       --border: rgba(0,0,0,0.1);
       --primary: #8b5cf6;
-      --accent: #a855f7;
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -32,29 +30,26 @@
       transition: all 0.4s ease;
     }
 
-    /* BEAUTIFUL ANIMATED PURPLE HEADER */
+    /* ANIMATED PURPLE HEADER */
     header {
       padding: 6rem 2rem 4rem;
       text-align: center;
       background: linear-gradient(-45deg, #6366f1, #8b5cf6, #a855f7, #d946ef);
       background-size: 400% 400%;
       animation: gradient 16s ease infinite;
-      position: relative;
-      overflow: hidden;
     }
     @keyframes gradient {
       0%,100% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
     }
 
-    /* NO GLASS CARD – CLEAN & DIRECT */
     .avatar {
       width: 140px;
       height: 140px;
       border-radius: 50%;
       border: 6px solid rgba(255,255,255,0.3);
       margin-bottom: 1.5rem;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
     }
 
     h1 {
@@ -83,8 +78,9 @@
       box-shadow: 0 12px 30px rgba(0,0,0,0.3);
       transition: 0.3s;
     }
-    .resume-btn:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+    .resume-btn:hover { transform: translateY(-5px); }
 
+    /* TOP BAR */
     .top-bar {
       position: fixed;
       top: 24px;
@@ -114,29 +110,98 @@
 
     .container { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
 
-    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 5rem; }
-    .stat-card { background: var(--card); backdrop-filter: blur(12px); padding: 2rem; border-radius: 24px; text-align: center; border: 1px solid var(--border); }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 5rem;
+    }
+    .stat-card {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      padding: 2rem;
+      border-radius: 24px;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
     .stat-number { font-size: 3rem; font-weight: 800; color: var(--primary); }
 
-    h2 { text-align: center; font-size: 2.6rem; margin: 4rem 0 3rem; color: var(--text); }
+    h2 {
+      text-align: center;
+      font-size: 2.6rem;
+      margin: 4rem 0 3rem;
+      color: var(--text);
+      font-weight: 700;
+    }
 
-    .about, .skill-card, .cert-card, .repo-card {
+    .about {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      padding: 2.5rem;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      text-align: center;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      max-width: 900px;
+      margin: 0 auto 5rem;
+    }
+
+    /* SKILLS WITH ANIMATED PROGRESS BARS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2rem;
+    }
+    .skill-item {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      padding: 1.8rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      transition: transform 0.3s;
+    }
+    .skill-item:hover { transform: translateY(-8px); }
+    .skill-icon {
+      font-size: 2.8rem;
+      color: var(--primary);
+      min-width: 60px;
+    }
+    .skill-info h3 {
+      margin: 0 0 0.8rem;
+      font-size: 1.2rem;
+    }
+    .progress-bar {
+      height: 10px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .progress {
+      height: 100%;
+      background: linear-gradient(90deg, #8b5cf6, #c084fc);
+      width: 0;
+      border-radius: 10px;
+      transition: width 1.8s ease-out;
+    }
+
+    .certs-grid, .repos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.8rem;
+    }
+    .cert-card, .repo-card {
       background: var(--card);
       backdrop-filter: blur(12px);
       padding: 2rem;
       border-radius: 20px;
       border: 1px solid var(--border);
-      margin-bottom: 1.5rem;
       transition: transform 0.3s;
     }
-    .skill-card:hover, .cert-card:hover, .repo-card:hover { transform: translateY(-10px); }
-
-    .skills-grid, .certs-grid, .repos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.8rem;
-    }
-    .skill-icon { font-size: 3rem; color: var(--primary); text-align: center; margin-bottom: 1rem; }
+    .cert-card:hover, .repo-card:hover { transform: translateY(-10px); }
     .repo-name { color: var(--primary); font-weight: 600; text-decoration: none; font-size: 1.3rem; }
     .repo-name:hover { text-decoration: underline; }
 
@@ -153,34 +218,62 @@
     <button id="themeToggle"><i class="fas fa-sun"></i></button>
   </div>
 
-  <!-- CLEAN HERO – NO GLASS CARD -->
+  <!-- CLEAN HERO - NO GLASS -->
   <header>
-    <img src="https://avatars.githubusercontent.com/u/149857084?v=4" id="avatar" class="avatar" alt="Prashant Thakur">
-    <h1 id="name">Prashant Thakur</h1>
-    <p class="tagline" id="tagline">Security enthusiast • Developer • CTF player</p>
+    <img src="https://avatars.githubusercontent.com/u/149857084?v=4" class="avatar" alt="Prashant Thakur">
+    <h1>Prashant Thakur</h1>
+    <p class="tagline">Security enthusiast • Developer • CTF player</p>
     <a href="resume.pdf" class="resume-btn" download>Download Resume</a>
   </header>
 
   <div class="container">
 
+    <!-- Stats -->
     <div class="stats" id="stats">
       <div class="stat-card"><div class="stat-number" id="reposCount">-</div><div>Repositories</div></div>
       <div class="stat-card"><div class="stat-number" id="starsCount">-</div><div>Total Stars</div></div>
       <div class="stat-card"><div class="stat-number" id="followers">-</div><div>Followers</div></div>
     </div>
 
+    <!-- About -->
     <div class="about">
       I'm currently a <strong>2nd year B.Tech Computer Science student</strong>, passionate about software development, DSA, and cybersecurity. Alongside my studies, I actively work on freelance projects, continuously building my skills through real-world experience.
     </div>
 
+    <!-- Skills with Progress Bars -->
     <h2>Skills</h2>
     <div class="skills-grid">
-      <div class="skill-card"><div class="skill-icon"><i class="fas fa-shield-alt"></i></div><div>Cybersecurity</div></div>
-      <div class="skill-card"><div class="skill-icon"><i class="fab fa-python"></i></div><div>Python</div></div>
-      <div class="skill-card"><div class="skill-icon"><i class="fab fa-linux"></i></div><div>Linux</div></div>
-      <div class="skill-card"><div class="skill-icon"><i class="fas fa-network-wired"></i></div><div>Network Security</div></div>
+      <div class="skill-item">
+        <i class="fas fa-shield-alt skill-icon"></i>
+        <div class="skill-info">
+          <h3>Cybersecurity</h3>
+          <div class="progress-bar"><div class="progress" style="width: 92%"></div></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-python skill-icon"></i>
+        <div class="skill-info">
+          <h3>Python</h3>
+          <div class="progress-bar"><div class="progress" style="width: 88%"></div></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-linux skill-icon"></i>
+        <div class="skill-info">
+          <h3>Linux</h3>
+          <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-network-wired skill-icon"></i>
+        <div class="skill-info">
+          <h3>Network Security</h3>
+          <div class="progress-bar"><div class="progress" style="width: 78%"></div></div>
+        </div>
+      </div>
     </div>
 
+    <!-- Certifications -->
     <h2>Certifications</h2>
     <div class="certs-grid">
       <div class="cert-card"><h3>CompTIA Security+</h3><p>CompTIA • 2024</p></div>
@@ -188,6 +281,7 @@
       <div class="cert-card"><h3>TryHackMe Learning Paths</h3><p>TryHackMe • 2023</p></div>
     </div>
 
+    <!-- Projects -->
     <h2>Projects</h2>
     <div class="repos-grid" id="reposGrid">
       <div style="grid-column:1/-1;text-align:center;padding:5rem;color:#94a3b8;">
@@ -202,23 +296,43 @@
   <script>
     const username = "shortageofname";
 
-    // Theme Toggle
-    const btn = document.getElementById('themeToggle');
-    if (localStorage.getItem('theme') === 'light') {
+    // FIXED: Theme toggle works on FIRST click
+    const themeBtn = document.getElementById('themeToggle');
+    const currentTheme = localStorage.getItem('theme');
+    
+    if (currentTheme === 'light') {
       document.documentElement.setAttribute('data-theme', 'light');
-      btn.innerHTML = '<i class="fas fa-moon"></i>';
+      themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
     }
-    btn.onclick = () => {
+
+    themeBtn.addEventListener('click', () => {
       if (document.documentElement.hasAttribute('data-theme')) {
         document.documentElement.removeAttribute('data-theme');
         localStorage.setItem('theme', 'dark');
-        btn.innerHTML = '<i class="fas fa-sun"></i>';
+        themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
       } else {
         document.documentElement.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
-        btn.innerHTML = '<i class="fas fa-moon"></i>';
+        themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
       }
-    };
+    });
+
+    // Animate progress bars when in view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.progress').forEach(bar => {
+            bar.style.width = bar.parentElement.nextElementSibling ? '0%' : bar.style.width;
+            setTimeout(() => bar.style.width = bar.style.width || '85%', 200);
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(document.querySelector('.skills-grid'));
 
     // Load GitHub Data
     async function load() {
@@ -226,10 +340,6 @@
         fetch(`https://api.github.com/users/${username}`).then(r => r.json()),
         fetch(`https://api.github.com/users/${username}/repos?per_page=100`).then(r => r.json())
       ]);
-
-      document.getElementById('avatar').src = user.avatar_url;
-      document.getElementById('name').textContent = user.name || "Prashant Thakur";
-      document.getElementById('tagline').textContent = user.bio || "Security enthusiast • Developer • CTF player";
 
       document.getElementById('reposCount').textContent = user.public_repos;
       document.getElementById('followers').textContent = user.followers;
@@ -239,7 +349,7 @@
       grid.innerHTML = '';
       repos.filter(r => !r.fork)
         .sort((a,b) => b.stargazers_count - a.stargazers_count)
-        .forEach(r => {
+        .forEach(r) => {
           grid.innerHTML += `
             <div class="repo-card">
               <a href="${r.html_url}" target="_blank" class="repo-name">${r.name}</a>
