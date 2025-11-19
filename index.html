@@ -25,98 +25,219 @@
       --skill-bg: rgba(139, 92, 246, 0.15);
       --progress-bg: rgba(139, 92, 246, 0.2);
     }
+
     * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); transition:all .4s; }
-    
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background: var(--bg); 
+      color: var(--text); 
+      transition: all .4s;
+    }
+   
     header {
-      padding:6rem 2rem 4rem; text-align:center;
-      background:linear-gradient(-45deg,#6366f1,#8b5cf6,#a855f7,#d946ef);
-      background-size:400% 400%; animation:grad 16s ease infinite;
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+      background: linear-gradient(-45deg, #6366f1, #8b5cf6, #a855f7, #d946ef);
+      background-size: 400% 400%;
+      animation: grad 16s ease infinite;
     }
-    @keyframes grad{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-    
-    .avatar{width:140px;height:140px;border-radius:50%;border:6px solid rgba(255,255,255,.3);margin-bottom:1.5rem;box-shadow:0 15px 35px rgba(0,0,0,.5)}
-    h1{font-size:3.4rem;font-weight:800;color:#fff;margin:.5rem 0;text-shadow:0 4px 15px rgba(0,0,0,.4)}
-    .tagline{font-size:1.35rem;color:rgba(255,255,255,.95);margin:1rem 0 2.5rem;font-weight:500}
-    .resume-btn{background:#fff;color:#8b5cf6;padding:16px 40px;border-radius:50px;font-weight:700;font-size:1.1rem;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.3);transition:.3s;display:inline-block}
-    .resume-btn:hover{transform:translateY(-5px)}
-    
-    /* Changed only this block - now top-centered */
-    .top-bar{
-      position:fixed;
-      top:24px;
-      left:50%;
-      transform:translateX(-50%);
-      display:flex;
-      gap:16px;
-      background:rgba(0,0,0,.3);
-      backdrop-filter:blur(16px);
-      padding:14px 20px;
-      border-radius:50px;
-      border:1px solid rgba(255,255,255,.15);
-      z-index:1000;
+    @keyframes grad {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
-    .top-bar a,.top-bar button{color:#fff;font-size:1.4rem;width:48px;height:48px;display:grid;place-items:center;border-radius:50%;background:none;border:none;cursor:pointer;transition:.3s}
-    .top-bar a:hover,.top-bar button:hover{background:rgba(255,255,255,.2);transform:scale(1.2)}
-    
-    .container{max-width:1200px;margin:0 auto;padding:4rem 2rem}
-    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-bottom:5rem}
-    .stat-card{background:var(--card);backdrop-filter:blur(12px);padding:2rem;border-radius:24px;text-align:center;border:1px solid var(--border)}
-    .stat-number{font-size:3rem;font-weight:800;color:var(--accent)}
-    
-    h2{text-align:center;font-size:2.6rem;margin:4rem 0 3rem;color:var(--text);font-weight:700}
-    .about{background:var(--card);backdrop-filter:blur(12px);padding:2.5rem;border-radius:24px;border:1px solid var(--border);text-align:center;font-size:1.15rem;line-height:1.8;max-width:900px;margin:0 auto 5rem}
-    
-    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.8rem;max-width:1000px;margin:0 auto 5rem}
-    .skill-card{
-      background:var(--skill-bg);
-      backdrop-filter:blur(14px);
-      border-radius:20px;
-      padding:1.8rem;
-      display:flex;
-      align-items:center;
-      gap:1.2rem;
-      border:1px solid var(--border);
-      transition:transform .3s, box-shadow .3s;
+   
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 6px solid rgba(255,255,255,.3);
+      margin-bottom: 1.5rem;
+      box-shadow: 0 15px 35px rgba(0,0,0,.5);
     }
-    .skill-card:hover{transform:translateY(-6px);box-shadow:0 10px 25px rgba(139,92,246,.2)}
-    .skill-card i{font-size:2.6rem;color:var(--accent);flex-shrink:0}
-    .skill-info{flex:1;display:flex;flex-direction:column;gap:.6rem}
-    .skill-info h3{color:var(--text);margin:0;font-size:1.15rem;font-weight:600}
-    .progress-container{
-      height:12px;
-      background:var(--progress-bg);
-      border-radius:10px;
-      overflow:hidden;
-      width:100%;
-      border:1px solid rgba(139,92,246,.2);
+    h1 {
+      font-size: 3.4rem;
+      font-weight: 800;
+      color: #fff;
+      margin: .5rem 0;
+      text-shadow: 0 4px 15px rgba(0,0,0,.4);
     }
-    .progress-fill{
-      height:100%;
-      background:linear-gradient(90deg,var(--accent),#e879f9);
-      border-radius:10px;
-      width:0%;
-      transition:width 2.2s cubic-bezier(.65,0,.35,1);
+    .tagline {
+      font-size: 1.35rem;
+      color: rgba(255,255,255,.95);
+      margin: 1rem 0 2.5rem;
+      font-weight: 500;
     }
-    
-    .certificates-box{background:var(--card);backdrop-filter:blur(14px);border:1px solid var(--border);border-radius:24px;padding:2rem 2.5rem;max-width:900px;margin:0 auto 5rem}
-    .cert-list{list-style:none}
-    .cert-list li{padding:1rem 0;border-bottom:1px solid rgba(139,92,246,.15);display:flex;justify-content:space-between;align-items:center;font-size:1.1rem}
-    .cert-list li:last-child{border-bottom:none}
-    .cert-name{color:var(--accent);font-weight:600}
-    .cert-issuer{color:#94a3b8;font-size:.95rem}
-    
-    .repos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.8rem}
-    .repo-card{background:var(--card);backdrop-filter:blur(12px);padding:2rem;border-radius:20px;border:1px solid var(--border);transition:transform .3s}
-    .repo-card:hover{transform:translateY(-10px)}
-    .repo-name{color:var(--accent);font-weight:600;text-decoration:none;font-size:1.3rem}
-    .repo-name:hover{text-decoration:underline}
-    
-    footer{text-align:center;padding:4rem 1rem;color:#94a3b8}
+    .resume-btn {
+      background: #fff;
+      color: #8b5cf6;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(0,0,0,.3);
+      transition: .3s;
+      display: inline-block;
+    }
+    .resume-btn:hover { transform: translateY(-5px); }
+   
+    /* top bar - centered at the top */
+    .top-bar {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 16px;
+      background: rgba(0,0,0,.3);
+      backdrop-filter: blur(16px);
+      padding: 14px 20px;
+      border-radius: 50px;
+      border: 1px solid rgba(255,255,255,.15);
+      z-index: 1000;
+    }
+    .top-bar a, .top-bar button {
+      color: #fff;
+      font-size: 1.4rem;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: .3s;
+    }
+    .top-bar a:hover, .top-bar button:hover {
+      background: rgba(255,255,255,.2);
+      transform: scale(1.2);
+    }
+   
+    .container { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+    .stats { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+      gap: 2rem; 
+      margin-bottom: 5rem; 
+    }
+    .stat-card {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      padding: 2rem;
+      border-radius: 24px;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+    .stat-number { font-size: 3rem; font-weight: 800; color: var(--accent); }
+   
+    h2 { 
+      text-align: center; 
+      font-size: 2.6rem; 
+      margin: 4rem 0 3rem; 
+      font-weight: 700; 
+    }
+    .about {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      padding: 2.5rem;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      text-align: center;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      max-width: 900px;
+      margin: 0 auto 5rem;
+    }
+   
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.8rem;
+      max-width: 1000px;
+      margin: 0 auto 5rem;
+    }
+    .skill-card {
+      background: var(--skill-bg);
+      backdrop-filter: blur(14px);
+      border-radius: 20px;
+      padding: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      border: 1px solid var(--border);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .skill-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(139,92,246,.2);
+    }
+    .skill-card i { font-size: 2.6rem; color: var(--accent); flex-shrink: 0; }
+    .skill-info { flex: 1; display: flex; flex-direction: column; gap: .6rem; }
+    .skill-info h3 { margin: 0; font-size: 1.15rem; font-weight: 600; }
+    .progress-container {
+      height: 12px;
+      background: var(--progress-bg);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(139,92,246,.2);
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), #e879f9);
+      border-radius: 10px;
+      width: 0%;
+      transition: width 2.2s cubic-bezier(.65,0,.35,1);
+    }
+   
+    .certificates-box {
+      background: var(--card);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2rem 2.5rem;
+      max-width: 900px;
+      margin: 0 auto 5rem;
+    }
+    .cert-list { list-style: none; }
+    .cert-list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(139,92,246,.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1rem;
+    }
+    .cert-list li:last-child { border-bottom: none; }
+    .cert-name { color: var(--accent); font-weight: 600; }
+    .cert-issuer { color: #94a3b8; font-size: .95rem; }
+   
+    .repos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.8rem;
+    }
+    .repo-card {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      padding: 2rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      transition: transform .3s;
+    }
+    .repo-card:hover { transform: translateY(-10px); }
+    .repo-name {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.3rem;
+    }
+    .repo-name:hover { text-decoration: underline; }
+   
+    footer { text-align: center; padding: 4rem 1rem; color: #94a3b8; }
   </style>
 </head>
 <body>
-
   <div class="top-bar">
     <a href="https://github.com/prashant64bit" target="_blank"><i class="fab fa-github"></i></a>
     <a href="https://linkedin.com/in/prashant-cybersecurity" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -143,7 +264,7 @@
       I'm currently a <strong>2nd year B.Tech Computer Science student</strong>, passionate about software development, DSA, and cybersecurity. Alongside my studies, I actively work on freelance projects, continuously building my skills through real-world experience.
     </div>
 
-    <h2>Skills</h2>
+    <h2>Academy</h2>
     <div class="skills-grid">
       <div class="skill-card"><i class="fas fa-shield-alt"></i><div class="skill-info"><h3>Cybersecurity</h3><div class="progress-container"><div class="progress-fill" data-p="92"></div></div></div></div>
       <div class="skill-card"><i class="fab fa-python"></i><div class="skill-info"><h3>Python</h3><div class="progress-container"><div class="progress-fill" data-p="88"></div></div></div></div>
@@ -175,69 +296,78 @@
   <script>
     // made by prashant - 2025
     const user = "prashant64bit";
-    
-    // theme toggle
+   
+    // theme toggle - remembers your choice
     const btn = document.getElementById('toggleTheme');
-    if(localStorage.theme === 'light'){
-      document.documentElement.setAttribute('data-theme','light');
+    if (localStorage.theme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
       btn.innerHTML = '<i class="fas fa-moon"></i>';
     }
     btn.onclick = () => {
-      if(document.documentElement.hasAttribute('data-theme')){
+      if (document.documentElement.hasAttribute('data-theme')) {
         document.documentElement.removeAttribute('data-theme');
         localStorage.theme = 'dark';
         btn.innerHTML = '<i class="fas fa-sun"></i>';
-      }else{
-        document.documentElement.setAttribute('data-theme','light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
         localStorage.theme = 'light';
         btn.innerHTML = '<i class="fas fa-moon"></i>';
       }
     };
 
-    // dynamic year (India)
-    const india = new Date().toLocaleString("en-US", {timeZone: "Asia/Kolkata"});
-    document.getElementById('yearFooter').innerHTML = `© ${new Date(india).getFullYear()} Prashant Thakur • Built with passion`;
+    // update year automatically (India time)
+    const indiaTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
+    document.getElementById('yearFooter').innerHTML = `© ${new Date(indiaTime).getFullYear()} Prashant Thakur • Built with passion`;
 
-    // skill bars animation
-    const obs = new IntersectionObserver(e => {
-      if(e[0].isIntersecting){
-        document.querySelectorAll('.progress-fill').forEach(b => {
-          b.style.width = b.dataset.p + '%';
+    // animate skill bars when you scroll to them
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        document.querySelectorAll('.progress-fill').forEach(bar => {
+          bar.style.width = bar.dataset.p + '%';
         });
       }
-    }, {threshold: 0.6});
-    obs.observe(document.querySelector('.skills-grid'));
+    }, { threshold: 0.6 });
+    observer.observe(document.querySelector('.skills-grid'));
 
-    // github data
-    async function loadGit(){
-      try{
-        const [u,r] = await Promise.all([
-          fetch(`https://api.github.com/users/${user}`),
-          fetch(`https://api.github.com/users/${user}/repos?per_page=100`)
-        ].map(p => p.then(res => res.json())));
-        
-        document.getElementById('repoNum').textContent = u.public_repos || 0;
-        document.getElementById('followNum').textContent = u.followers || 0;
-        document.getElementById('starNum').textContent = r.reduce((a,b)=>a+(b.stargazers_count||0),0);
+    // load github stats and projects
+    async function loadGit() {
+      try {
+        const [userData, repos] = await Promise.all([
+          fetch(`https://api.github.com/users/${user}`).then(r => r.json()),
+          fetch(`https://api.github.com/users/${user}/repos?per_page=100`).then(r => r.json())
+        ]);
+
+        document.getElementById('repoNum').textContent = userData.public_repos || 0;
+        document.getElementById('followNum').textContent = userData.followers || 0;
+        document.getElementById('starNum').textContent = repos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
 
         const grid = document.getElementById('projects');
         grid.innerHTML = '';
-        r.filter(x => !x.fork)
-         .sort((a,b) => b.stargazers_count - a.stargazers_count)
-         .forEach(repo => {
-           grid.innerHTML += `<div class="repo-card">
-             <a href="${repo.html_url}" target="_blank" class="repo-name">${repo.name}</a>
-             <p style="margin:1rem 0;color:#94a3b8">${repo.description||'No description'}</p>
-             <div style="font-size:.9rem;color:#64748b">
-               ${repo.language ? `<span><i class="fas fa-circle" style="color:${repo.language==='Python'?'#3572A5':repo.language==='JavaScript'?'#f1e05a':'#6e5494'}"></i> ${repo.language}</span>` : ''}
-               <span style="margin-left:1rem"><i class="fas fa-star"></i> ${repo.stargazers_count||0}</span>
-             </div>
-           </div>`;
-         });
-      }catch{
-        document.getElementById('projects').innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:4rem;color:#94a3b8">GitHub busy, try later</div>';
+
+        repos
+          .filter(repo => !repo.fork)
+          .sort((a, b) => b.stargazers_count - a.stargazers_count)
+          .forEach(repo => {
+            const langColor = repo.language === 'Python' ? '#3572A5' : 
+                              repo.language === 'JavaScript' ? '#f1e05a' : '#6e5494';
+
+            grid.innerHTML += `
+              <div class="repo-card">
+                <a href="${repo.html_url}" target="_blank" class="repo-name">${repo.name}</a>
+                <p style="margin:1rem 0;color:#94a3b8">${repo.description || 'No description'}</p>
+                <div style="font-size:.9rem;color:#64748b">
+                  ${repo.language ? `<span><i class="fas fa-circle" style="color:${langColor}"></i> ${repo.language}</span>` : ''}
+                  <span style="margin-left:1rem"><i class="fas fa-star"></i> ${repo.stargazers_count || 0}</span>
+                </div>
+              </div>`;
+          });
+
+      } catch (err) {
+        document.getElementById('projects').innerHTML = 
+          '<div style="grid-column:1/-1;text-align:center;padding:4rem;color:#94a3b8">GitHub is busy right now, try again later</div>';
       }
     }
+
     loadGit();
   </script>
 </body>
